@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pageTitle">الصفحة الشخصية لـ راسان سلطانی</title>
+    <style>
+        /* -------------------------------------------------------------------------- */
+        /* Galactic (Space) Dark Theme - CSS UPDATED */
+        /* -------------------------------------------------------------------------- */
+        
+        body {
+            /* پس‌زمینه مشکی عمیق با گرادیانت ملایم (حس فضا) */
+            background: radial-gradient(circle at top right, #1a0330 0%, #000000 70%);
+            color: #e0e0ff; /* متن مایل به سفید/آبی روشن */
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            margin: 0;
+            padding: 30px 20px;
+            direction: rtl; 
+            min-height: 100vh;
+            transition: background-color 0.5s;
+        }
+
+        /* تنظیمات جهت برای زبان‌ها */
+        html[lang="en"] body {
+            direction: ltr;
+            background: radial-gradient(circle at top left, #1a0330 0%, #000000 70%);
+        }
+
+        html[lang="fa"] body {
+            direction: rtl;
+        }
+
+        /* هدر و دکمه تغییر زبان */
+        header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .lang-toggle {
+            background: linear-gradient(135deg, #4b0082, #1e90ff); /* گرادیانت بنفش به آبی */
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px; 
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5); 
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background: linear-gradient(135deg, #1e90ff, #4b0082); 
+            box-shadow: 0 0 20px rgba(75, 0, 130, 0.7); 
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            color: #9370db; 
+            text-shadow: 0 0 8px rgba(147, 112, 219, 0.8); 
+        }
+
+
+        /* استایل کارت (مشابه کارت ملی) */
+        .id-card-container {
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+            background-color: #0b021d;
+            border: 2px solid #5d3f9f; 
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(93, 63, 159, 0.5), 0 0 5px #000; 
+            display: flex;
+            gap: 30px;
+            align-items: center; /* Vertically center content on desktop */
+            position: relative;
+            overflow: hidden; 
+        }
+        
+        .id-card-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(75, 0, 130, 0.7) 0%, rgba(30, 144, 255, 0.3) 50%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(20px);
+            z-index: 0;
+        }
+
+        .photo-section {
+            flex-shrink: 0;
+            text-align: center;
+            z-index: 1; 
+        }
+
+        .photo-section img {
+            width: 130px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #1e90ff; 
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.8); 
+            background-color: #333;
+            transition: transform 0.3s;
+        }
+        
+        .photo-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .info-section {
+            flex-grow: 1;
+            z-index: 1;
+        }
+        /* Style for the new section header */
+        .info-section h2 {
+            margin-top: 0;
+            color: #ffcc00; 
+            font-size: 28px;
+            border-bottom: 2px solid #5d3f9f;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #ffcc004d;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex; /* برای چیدمان بهتر label و span */
+            gap: 10px;
+            align-items: center;
+        }
+
+        .info-item label {
+            font-weight: bold;
+            flex-shrink: 0;
+            color: #9370db; 
+            font-size: 15px;
+        }
+
+        .info-item span {
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 0.5px; 
+            flex-grow: 1;
+        }
+        
+        /* استایل خاص برای کد ملی در باکس */
+        #national-id-box {
+            font-family: 'Consolas', 'Courier New', monospace; /* فونت مونو برای اعداد */
+            font-size: 20px;
+            background-color: #2b0c4d; /* پس‌زمینه بنفش تیره */
+            border: 1px solid #9370db;
+            padding: 5px 10px;
+            border-radius: 5px;
+            letter-spacing: 1.5px;
+            text-align: center;
+        }
+
+        /* بخش توضیحات پایینی */
+        .footer-note {
+            max-width: 800px; /* عریض‌تر شدن برای متن طولانی‌تر */
+            margin: 0 auto;
+            padding: 30px;
+            border-top: 1px dashed #4b0082; 
+            text-align: justify; /* تراز از دو طرف */
+            font-size: 16px;
+            line-height: 2.0;
+            color: #cccccc;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            background-color: #0b021d;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(75, 0, 130, 0.3);
+        }
+
+        /* رسپانسیو بودن - Modified to keep side-by-side layout on mobile AND center content */
+        @media (max-width: 550px) {
+            .id-card-container {
+                align-items: center; /* Ensures photo is centered next to info section */
+                text-align: initial;
+                padding: 15px; 
+                gap: 15px; 
+            }
+
+            .photo-section img {
+                width: 100px; 
+                height: 120px;
+            }
+
+            .info-section h2 {
+                text-align: initial;
+                font-size: 22px;
+            }
+            
+            .info-item {
+                margin-bottom: 10px;
+                flex-wrap: wrap; 
+            }
+            .info-item label {
+                 font-size: 14px;
+            }
+            .info-item span {
+                font-size: 16px;
+            }
+
+            #national-id-box {
+                width: auto; 
+                box-sizing: content-box;
+            }
+            .footer-note {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <select id="language-switcher" class="lang-toggle">
+            <option value="ar">العربیة</option>
+            <option value="fa">فارسی</option>
+            <option value="en">English</option>
+        </select>
+    </header>
+
+    <main>
+        <h1 style="text-align: center;" data-lang-key="mainHeader">البيانات الشخصية</h1>
+        
+        <div class="id-card-container">
+            <div class="photo-section">
+                <img src="placeholder-photo.jpg" alt="صورة شخصية" data-lang-key="photoAlt">
+            </div>
+            <div class="info-section">
+                <h2 data-lang-key="infoSectionTitle">المعلومات الأساسية</h2> 
+                
+                <div class="info-item">
+                    <label data-lang-key="labelFullName">الاسم الكامل:</label>
+                    <span id="full-name" data-lang-key="fullName">راسان سلطانی</span>
+                </div>
+
+                <div class="info-item">
+                    <label data-lang-key="labelBirthDate">تاريخ الميلاد:</label>
+                    <span id="birth-date">2011/03/22</span>
+                </div>
+                
+                <div class="info-item">
+                    <label data-lang-key="labelFatherName">اسم الأب:</label>
+                    <span id="father-name">رحیم</span>
+                </div>
+                
+                <div class="info-item">
+                    <label data-lang-key="labelNationality">الجنسية:</label>
+                    <span id="nationality">إيراني وإماراتي (مزدوج)</span>
+                </div>
+
+                <div class="info-item">
+                    <label data-lang-key="labelRole">الجنس:</label>
+                    <span id="role" data-lang-key="role">ذكر</span>
+                </div>
+                
+                <div class="info-item" style="margin-top: 25px;">
+                    <label data-lang-key="labelNationalId">الرقم القومي:</label>
+                    <span id="national-id-box">784-1987-5427423-3</span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p id="footer-text" data-lang-key="footerNote">
+                **الرؤية والقيادة في مجموعة فوربا مهر ایران وراسان دیزاین:**
+                
+                راسان سلطانی، كقائد ورئيس تنفيذي لمجموعة **فوربا مهر ایران** (4ba Mehr Iran Holding) وشركة **راسان دیزاین** (RasanDesign Company)، يتمتع بسجل حافل في قيادة المشاريع الكبرى وتوسيع النطاق الاستراتيجي للشركات في منطقة الشرق الأوسط وخارجها. 
+                
+                تأسست مجموعة فوربا مهر ایران بهدف الابتكار في قطاعات متعددة تشمل التطوير العقاري، التكنولوجيا المالية، والاستثمارات الاستراتيجية، وقد أصبحت تحت إشرافه قوة دافعة للتغيير الإيجابي والنمو الاقتصادي. إن التوجه الدولي للمجموعة، لا سيما في أسواق الخليج العربي، كان السبب الرئيسي وراء انتقال السيد سلطانی وإقامته في **دولة الإمارات العربية المتحدة**.
+                
+                تعد الإقامة في الإمارات خطوة استراتيجية تهدف إلى تعزيز الوجود الإقليمي لمجموعة فوربا مهر ایران، وتسهيل الشراكات الدولية، والاستفادة من البيئة الاقتصادية المتطورة لدبي وأبوظبي. هذا القرار يعكس التزام المجموعة بالتوسع العالمي وتقديم خدمات ذات جودة عالية تتوافق مع المعايير الدولية. 
+                
+                كما أن شركة راسان دیزاین، التي تخصصت في التصميم المعماري الداخلي والخارجي المبتكر، تواصل تحت قيادته ترسيخ مكانتها كأحد الرواد في دمج الجماليات الفنية مع الكفاءة الوظيفية، مسهمة في إثراء المشهد العمراني. 
+                
+                إن الجمع بين الجنسيتين (الإيرانية والإماراتية) يمنح السيد سلطانی منظوراً فريداً وفهماً عميقاً للثقافة التجارية في كل من الشرق الأوسط ومنطقة الخليج، مما يدعم قدرته على اتخاذ قرارات استثمارية حكيمة وتقوية العلاقات التجارية الثنائية. تظل رؤيته هي ربط الفرص الاقتصادية عبر الحدود وخلق قيمة مستدامة لجميع المساهمين.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // --------------------------------------------------------------------------
+        // JavaScript for Language Toggle - Default set to Arabic ('ar')
+        // --------------------------------------------------------------------------
+        const translations = {
+            'fa': {
+                'pageTitle': 'صفحه شخصی راسان سلطانی',
+                'mainHeader': 'اطلاعات هویتی',
+                'infoSectionTitle': 'اطلاعات اصلی', 
+                'photoAlt': 'عکس پرسنلی',
+                'fullName': 'راسان سلطانی',
+                'labelFullName': 'نام کامل:', 
+                'labelBirthDate': 'تاریخ تولد:',
+                'labelFatherName': 'نام پدر:',
+                'labelNationality': 'تابعیت:',
+                'labelNationalId': 'کد ملی:',
+                'labelRole': 'جنسیت:', // UPDATED: Role to Gender
+                'role': 'پسر', // UPDATED: Value to Male
+                'footerNote': '**رؤیا و رهبری در هلدینگ فوربا مهر ایران و راسان دیزاین:**\n\nراسان سلطانی، به عنوان رهبر و مدیر عامل هلدینگ **فوربا مهر ایران** (4ba Mehr Iran Holding) و شرکت **راسان دیزاین** (RasanDesign Company)، سابقه درخشانی در هدایت پروژه‌های بزرگ و توسعه استراتژیک شرکت‌ها در منطقه خاورمیانه و فراتر از آن دارد. هلدینگ فوربا مهر ایران با هدف نوآوری در بخش‌های متعددی از جمله توسعه املاک، فناوری مالی و سرمایه‌گذاری‌های استراتژیک تأسیس شده است و تحت نظارت او به نیروی محرکه برای تغییرات مثبت و رشد اقتصادی تبدیل شده است. تمرکز بین‌المللی این گروه، به ویژه در بازارهای خلیج فارس، دلیل اصلی اقامت و جابجایی آقای سلطانی به **امارات متحده عربی** بوده است.\n\nاقامت در امارات یک گام استراتژیک با هدف تقویت حضور منطقه‌ای فوربا مهر ایران، تسهیل همکاری‌های بین‌المللی و بهره‌برداری از محیط اقتصادی پیشرفته دبی و ابوظبی است. این تصمیم تعهد گروه به توسعه جهانی و ارائه خدمات با کیفیت مطابق با استانداردهای بین‌المللی را نشان می‌دهد. همچنین، راسان دیزاین، متخصص در طراحی داخلی و خارجی نوآورانه، تحت رهبری او همچنان موقعیت خود را به عنوان یکی از پیشگامان در ترکیب زیبایی‌شناسی هنری با کارایی عملکردی تثبیت می‌کند و به غنی‌سازی چشم‌انداز شهری کمک می‌کند.\n\nترکیب دو تابعیت (ایرانی و اماراتی) به آقای سلطانی دیدگاهی منحصر به فرد و درک عمیقی از فرهنگ تجاری خاورمیانه و منطقه خلیج فارس می‌دهد، که توانایی او را در تصمیم‌گیری‌های سرمایه‌گذاری هوشمندانه و تقویت روابط تجاری دو جانبه افزایش می‌دهد. چشم‌انداز او همیشه اتصال فرصت‌های اقتصادی فرامرزی و ایجاد ارزش پایدار برای همه ذینفعان است.'
+            },
+            'ar': {
+                'pageTitle': 'الصفحة الشخصية لـ راسان سلطانی',
+                'mainHeader': 'البيانات الشخصية',
+                'infoSectionTitle': 'المعلومات الأساسية', 
+                'photoAlt': 'صورة شخصية',
+                'fullName': 'راسان سلطانی',
+                'labelFullName': 'الاسم الكامل:', 
+                'labelBirthDate': 'تاريخ الميلاد:',
+                'labelFatherName': 'اسم الأب:',
+                'labelNationality': 'الجنسية:',
+                'labelNationalId': 'الرقم القومي:',
+                'labelRole': 'الجنس:', // UPDATED: Role to Gender
+                'role': 'ذكر', // UPDATED: Value to Male
+                'footerNote': '**الرؤية والقيادة في مجموعة فوربا مهر ایران وراسان دیزاین:**\n\nراسان سلطانی، كقائد ورئيس تنفيذي لمجموعة **فوربا مهر ایران** (4ba Mehr Iran Holding) وشركة **راسان دیزاین** (RasanDesign Company)، يتمتع بسجل حافل في قيادة المشاريع الكبرى وتوسيع النطاق الاستراتيجي للشركات في منطقة الشرق الأوسط وخارجها. تأسست مجموعة فوربا مهر ایران بهدف الابتكار في قطاعات متعددة تشمل التطوير العقاري، التكنولوجيا المالية، والاستثمارات الاستراتيجية، وقد أصبحت تحت إشرافه قوة دافعة للتغيير الإيجابي والنمو الاقتصادي. إن التوجه الدولي للمجموعة، لا سيما في أسواق الخليج العربي، كان السبب الرئيسي وراء انتقال السيد سلطانی وإقامته في **دولة الإمارات العربية المتحدة**.\n\nتعد الإقامة في الإمارات خطوة استراتيجية تهدف إلى تعزيز الوجود الإقليمي لمجموعة فوربا مهر ایران، وتسهيل الشراكات الدولية، والاستفادة من البيئة الاقتصادية المتطورة لدبي وأبوظبي. هذا القرار يعكس التزام المجموعة بالتوسع العالمي وتقديم خدمات ذات جودة عالية تتوافق مع المعايير الدولية. كما أن شركة راسان دیزاین، التي تخصصت في التصميم المعماري الداخلي والخارجي المبتكر، تواصل تحت قيادته ترسيخ مكانتها كأحد الرواد في دمج الجماليات الفنية مع الكفاءة الوظيفية، مسهمة في إثراء المشهد العمراني. \n\nإن الجمع بين الجنسيتين (الإيرانية والإماراتية) يمنح السيد سلطانی منظوراً فريداً وفهماً عميقاً للثقافة التجارية في كل من الشرق الأوسط ومنطقة الخليج، مما يدعم قدرته على اتخاذ قرارات استثمارية حكيمة وتقوية العلاقات التجارية الثنائية. تظل رؤيته هي ربط الفرص الاقتصادية عبر الحدود وخلق قيمة مستدامة لجميع المساهمين.'
+            },
+            'en': {
+                'pageTitle': 'Rasan Soltani\'s Personal Page',
+                'mainHeader': 'Personal Data',
+                'infoSectionTitle': 'Basic Information', 
+                'photoAlt': 'Personal Photo',
+                'fullName': 'Rasan Soltani',
+                'labelFullName': 'Full Name:', 
+                'labelBirthDate': 'Date of Birth:',
+                'labelFatherName': 'Father\'s Name:',
+                'labelNationality': 'Nationality:',
+                'labelNationalId': 'National ID:',
+                'labelRole': 'Gender:', // UPDATED: Role to Gender
+                'role': 'Male', // UPDATED: Value to Male
+                'footerNote': '**Vision and Leadership in 4ba Mehr Iran Holding and RasanDesign:**\n\nRasan Soltani, as the leader and CEO of **4ba Mehr Iran Holding** and **RasanDesign Company**, has a brilliant track record in guiding major projects and strategic corporate expansion in the Middle East and beyond. 4ba Mehr Iran Holding was established with the goal of innovation in multiple sectors, including real estate development, FinTech, and strategic investments, and has become a driving force for positive change and economic growth under his supervision. The group\'s international focus, especially in the Arabian Gulf markets, was the main reason for Mr. Soltani\'s relocation and residency in the **United Arab Emirates**.\n\nResidency in the UAE is a strategic step aimed at strengthening 4ba Mehr Iran Holding\'s regional presence, facilitating international partnerships, and leveraging the advanced economic environment of Dubai and Abu Dhabi. This decision reflects the group\'s commitment to global expansion and providing high-quality services in line with international standards. Furthermore, RasanDesign Company, which specializes in innovative internal and external architectural design, continues under his leadership to solidify its position as a pioneer in integrating artistic aesthetics with functional efficiency, contributing to the enrichment of the urban landscape.\n\nThe combination of two nationalities (Iranian and Emirati) grants Mr. Soltani a unique perspective and deep understanding of the business culture in both the Middle East and the Gulf region, enhancing his ability to make smart investment decisions and strengthen bilateral trade relations. His vision remains to connect cross-border economic opportunities and create sustainable value for all stakeholders.'
+            }
+        };
+
+        const langSwitcher = document.getElementById('language-switcher');
+        const htmlElement = document.documentElement;
+
+        function applyLanguage(lang) {
+            htmlElement.setAttribute('lang', lang);
+            if (lang === 'fa' || lang === 'ar') {
+                htmlElement.setAttribute('dir', 'rtl');
+            } else {
+                htmlElement.setAttribute('dir', 'ltr');
+            }
+            
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                const text = translations[lang] && translations[lang][key] ? translations[lang][key] : '';
+                
+                if (element.tagName === 'TITLE') {
+                    element.textContent = text;
+                } else if (element.tagName === 'IMG') {
+                    element.alt = text;
+                } else {
+                    // برای حفظ Bold/Italic در متن طولانی
+                    if (key === 'footerNote') {
+                         // تبدیل متن با استفاده از یک تابع (اختیاری)
+                         element.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+        }
+
+        langSwitcher.addEventListener('change', (event) => {
+            applyLanguage(event.target.value);
+        });
+
+        // اعمال زبان پیش‌فرض (عربی)
+        // زبان پیش‌فرض در تگ html و select برابر 'ar' تنظیم شده است.
+        // فقط باید تابع را یکبار فراخوانی کنیم تا محتوا به عربی نمایش داده شود.
+        applyLanguage(langSwitcher.value); 
+    </script>
+</body>
+</html>
